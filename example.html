@@ -1,0 +1,31 @@
+<html>
+	<head>
+		<link rel="stylesheet" type="text/css" href="default.css">
+		<script src="timed-css.min.js"></script>
+		<!-- <script src="timed-css.js"></script> -->
+		<script>
+			var now = new Date();
+			var then = new Date(now.getTime() + 10000);
+			var later = new Date(now.getTime() + 60000);
+			// Attempt 1
+			TimedCSS([
+			{
+				src: 'day.css',
+				start: now,
+				stop: then
+			},
+			{
+				src: 'night.css',
+				start: then,
+				stop: later
+			}
+			], 2000);
+		</script>
+	</head>
+	<body>
+		<section>
+			<h1>Test of Day/Night Mode</h1>
+			<p>The styling of this page should change within 10 seconds of loading. However, this is just to show the time change. You could set the style sheets to load at a specified time each night so the user would see the night time version after 9pm (or whenever you would like). It will then be disabled after 60 seconds.</p>
+		</section>
+	</body>
+</html>
