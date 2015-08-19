@@ -24,8 +24,8 @@ function TimedCSS() {
 		// Object, then settings format.
 		else if (typeof arguments[0] === 'object') {
 			files = [arguments[0]];
-			checkAfterLoad = (typeof arguments[1] === 'boolean') ? arguments[1] : true;
-			timeInterval = +arguments[2] > 0 ? +arguments[2] : 10000;
+			timeInterval = !arguments[1] ? 10000 : +arguments[1];
+			checkAfterLoad = +arguments[1] > 0;
 		}
 		// All arguments format. Requires at least 3 arguments to work.
 		else if (arguments.length >= 3) {
@@ -34,8 +34,8 @@ function TimedCSS() {
 				start: arguments[1],
 				stop: arguments[2],
 			}];
-			checkAfterLoad = (typeof arguments[3] === 'boolean') ? arguments[3] : true;
-			timeInterval = +arguments[4] > 0 ? +arguments[4] : 10000;
+			timeInterval = !arguments[3] ? 10000 : +arguments[3];
+			checkAfterLoad = +arguments[3] > 0;
 			
 		}
 		// Unable to parse arguments.
